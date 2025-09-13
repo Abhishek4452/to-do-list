@@ -52,7 +52,7 @@ while True:
             if not tasks:
                 print("no tasks to delete ")
                 continue
-        # PRINTING THE LIST OF TASKS
+             # PRINTING THE LIST OF TASKS
             for i,t in enumerate(tasks,1):
                 print(f"{i}.{t['task']}")
             # choose an ooption 2

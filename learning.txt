@@ -1,0 +1,6 @@
+# learning from this project
+
+1. json is such a wounderful concept to save our data which is both human readable and machine readable
+2. how to pop from the file
+3. os module help us to save our file 
+4. 
