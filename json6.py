@@ -1,12 +1,12 @@
 # generating a menu for the funciton
 def show():
     print("option_")
-    print("1. ADD Task")
+    print("1. ADD Task",end ="         ")
     print("2. mark task done ")
-    print("3. delete task done")
+    print("3. delete task done",end =" ")
     print("4. exit")
 
-tasks=[]# making a free dictionary
+tasks=[]# making a list
 
 #  loop 
 while True:
@@ -24,11 +24,13 @@ while True:
 
     if choice == 1: #ADD Task
         task = input("enter the task - ")
-        tasks.append({"task":task,"status":False}) # adding dictionary in the list
+        if task=="":
+            print("")  
+        else:
+            tasks.append({"task":task,"status":False}) # adding dictionary in the list
 
 
-
-    if choice == 2:#mark task done
+    elif choice == 2:#mark task done
         for i,t in enumerate(tasks,1):
             # printing the list for task
             print(f"{i}.{t['task']}[{'✔' if t['status'] else '✘'}]")
@@ -44,32 +46,39 @@ while True:
             print("invalid input ")
 
 
-
-    if choice ==3:#delete task done
-        # EMTY CONDITION CHECK
-        if not tasks:
-            print("no tasks to delete ")
-            continue
+    elif choice ==3:#delete task done
+        try:
+              # EMTY CONDITION CHECK
+            if not tasks:
+                print("no tasks to delete ")
+                continue
         # PRINTING THE LIST OF TASKS
-        for i,t in enumerate(t,1):
-            print(f"{i}.{t['task']}")
-        # TASKING THE INPUT FOR DELETING THE TASK
-        idx =int(input("enter task number for deletion"))
-        if idx.isdigit() and 1<=int(idx)<=len(idx):
-            tasks.pop(idx -1)
-
-        else:
-            print("invalid input!, TRY WITH DIFFERENT VALUE ")
+            for i,t in enumerate(tasks,1):
+                print(f"{i}.{t['task']}")
+            # choose an ooption 2
+            # 1.adding file in ppile[✔]
+            # 2.adding data in textbook[✘]
 
 
 
+            # TAKEING THE INPUT FOR DELETING THE TASK
+            idx =int(input("enter task number for deletion"))
+            # checking the length
+            if 1<=idx<=len(tasks):
+                tasks.pop(idx -1)
+
+            else:
+                print("invalid input!, TRY WITH DIFFERENT VALUE ")
+        except:
+            print("ERROR ______ **enter the number only -** ")
 
 
-    if choice == 4:# exit
+
+
+    elif choice == 4:# exit
         print("exiting ....")
         break
-    else:
-        print("enter a valid number")
+    
 
 
 
